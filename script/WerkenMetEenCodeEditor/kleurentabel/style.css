@@ -1,0 +1,20 @@
+.rood {
+    background-color: rgb(255, 0, 0); color: rgb(255, 255, 255);
+}
+
+.groen {
+    background-color: green; color: white;
+}
+
+.blauw {
+    background-color: blue; color: white;
+}
+
+.paars {
+    background-color: purple;
+}
+
+td, th {
+    color: white
+}
+
