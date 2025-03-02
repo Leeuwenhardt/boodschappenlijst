@@ -1,0 +1,11 @@
+h1 {
+    color: red;
+}
+
+#foo, #bar { /*to grab an id*/
+    color: blue;
+}
+
+.baz {/*to grab a class*/
+    color: green;
+}
