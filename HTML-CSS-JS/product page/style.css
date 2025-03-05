@@ -1,0 +1,159 @@
+/* Reset all default margins, padding, and set box-sizing to border-box for consistent sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the default font for the body */
+body {
+    font-family: "Arial", sans-serif;
+}
+
+/* Remove underline from all links */
+a {
+    text-decoration: none;
+}
+
+/* Remove bullet points from all lists */
+li {
+    list-style: none;
+}
+
+/* Style for the navbar container */
+.navbar {
+    width: 90%; /* Set width to 90% of the parent */
+    margin: auto; /* Center the navbar horizontally */
+}
+
+/* Create a 2-column grid layout for containers */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+}
+
+/* Style for the navigation container */
+.nav-container {
+    padding: 20px 0; /* Add padding to the top and bottom */
+}
+
+/* Style for the heading inside the navigation container */
+.nav-container h2 {
+    color: rgb(29, 29, 29); /* Dark gray color */
+}
+
+/* Style for the navigation links */
+.nav-container .nav {
+    justify-self: flex-end; /* Align the nav to the right */
+    display: flex; /* Display links in a row */
+}
+
+/* Style for individual navigation links */
+.nav-container .nav a {
+    margin: 0 20px; /* Add spacing between links */
+    color: black; /* Set link color */
+}
+
+/* Style for the active navigation link */
+.nav-container .nav .active {
+    background: #333; /* Dark background */
+    color: white; /* White text */
+    padding: 10px 10px; /* Add padding */
+    border-radius: 30px; /* Rounded corners */
+}
+
+/* Style for the header section */
+.header {
+    width: 80%; /* Set width to 80% of the parent */
+    margin: 70px auto; /* Center the header and add top/bottom margin */
+}
+
+/* Ensure images inside containers take up full width */
+.container img {
+    width: 100%;
+}
+
+/* Style for the h3 heading inside containers */
+.container div h3 {
+    font-size: 70px; /* Large font size */
+    position: relative; /* Make the h3 a positioning context */
+    display: inline-block; /* Ensure the h3 only takes up as much width as its content */
+}
+
+/*Setting up the underline*/
+.container div h3 .underline {
+    position: relative; /* Make the span a positioning context */
+}
+
+/* Add a decorative line after the h3 heading */
+.container div h3 .underline::after {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position it absolutely within the span */
+    background: rgb(10, 188, 188); /* Teal color */
+    height: 3px; /* Line thickness */
+    width: 100%; /* Line length (matches the width of "ere") */
+    bottom: -10px; /* Position the line at the bottom of the span */
+    left: 0; /* Align the line to the left edge of the span */
+}
+
+/* Style for paragraphs inside containers */
+.container div p {
+    margin: 20px 0; /* Add spacing above and below */
+}
+
+/* Style for links inside containers */
+.container div a {
+    padding: 15px; /* Add padding */
+    background: #333; /* Dark background */
+    margin: 20px 0; /* Add spacing above and below */
+    display: inline-block; /* Allow margin to work */
+    color: #fff; /* White text */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Style for the headphone image (used as a decorative background) */
+.headphone {
+    position: absolute; /* Position it absolutely */
+    top: -10%; /* Move it slightly above the top */
+    left: 5%; /* Position from the left */
+    opacity: 0.1; /* Make it semi-transparent */
+    z-index: -1; /* Send it behind other content */
+}
+
+/* Style for the footer section */
+.footer {
+    margin: 100px 0 0 0; /* Add top margin */
+    background: #333; /* Dark background */
+    padding: 100px 100px; /* Add padding */
+}
+
+/* Create a 4-column grid layout for the footer content */
+.footer .main-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    grid-gap: 2rem; /* Add spacing between columns */
+}
+
+/* Style for h4 headings inside the footer */
+.main-container div h4 {
+    color: rgb(41, 100, 177); /* Blue color */
+    font-size: 25px; /* Font size */
+    margin: 10px 0; /* Add spacing above and below */
+}
+
+/* Style for list items inside the footer */
+.main-container div li {
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin: 3px 0; /* Add spacing between list items */
+}
+
+/* Remove default bullet points and padding from footer lists */
+.footer ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+/* Add spacing between footer list items */
+.footer li {
+    margin-bottom: 0.5rem; /* Add spacing below each list item */
+}
