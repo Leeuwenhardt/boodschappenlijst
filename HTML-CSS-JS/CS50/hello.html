@@ -5,9 +5,20 @@
 
     <head>
         <title>Hello!</title>
+        <script>
+            function hello() {
+                const heading = document.querySelector('h1')
+;                if (heading.innerHTML === 'Hello!') {
+                     heading.innerHTML = 'Goodbye';
+                } else {
+                     heading.innerHTML = 'Hello!';
+                }                
+            }
+        </script>
     </head>
     <body>
-        Hello, world!
+        <h1>Hello, world!</h1>
+        <button onclick="hello()">Click here</button>
     </body>
 
 <!--Overall this is the DOM of this web page. The document object model-->
