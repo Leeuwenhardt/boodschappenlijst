@@ -24,7 +24,7 @@ li {
     --main-color: #f64d4a;
 }
 
-/* Animation keyframes for content entrance effect */
+/* Entrance effect */
 @keyframes fadeIn {
     from {
         opacity: 0;
