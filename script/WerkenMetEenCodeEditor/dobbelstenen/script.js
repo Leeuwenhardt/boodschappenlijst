@@ -1,16 +1,18 @@
 const button = document.getElementById('button');
 const amount = document.getElementsByClassName('amount');
 const rng = [];
-const count = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0    
-};
 
 function rollDice() {
+
+    const count = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0    
+    };
+
     //Manipulate rng array
     rng.length = 0;
     for (let i = 0; i < 8; i++) {
@@ -21,13 +23,11 @@ function rollDice() {
     //Manipulate count array
     for (let num of rng) {
         count[num]++
-        console.table(count)
     }
     //Manipulate table
-    for (let key in amount) {            
-        console.log(`{key}`);
-        })    
-    }
+    for (let key in count) {
+        amount[key-1].textContent = count[key];
+        }    
 }
 
 
