@@ -1,45 +1,41 @@
 *{
-    /*basic styling*/
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
 :root{
-    /*setting up variables */
+    /* CSS variables for consistent theming */
     --main-color:#6400e4;
-    --box-shadow:0px 3px 5px 0px rgba(0, 0, 0, 0.34)
+    --box-shadow:0px 3px 5px 0px rgba(0, 0, 0, 0.34); /* Fixed missing semicolon */
     --hover-shadow:0px 4px 4px 0px rgba(3, 3, 3, 0.561);
     --nav-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.100);
     --light-black:#141c3a;
-
 }
 
 body {
-    /*body styling*/
     font-family:"nunito", sans-serif;
 }
 
 .container {
-    /*styling div container*/
     width: 28%;
     margin: 100px auto;
 }
 
 form {
-    /*styling form*/
+    /* Vertical stacking of form elements using flexbox */
     display: flex;
     flex-direction: column;
     margin: 30px 0;
 }
 
 form label {
-    /*styling the label*/
     margin: 5px 0;  
 }
 
-form input[type="text"], input[type="password"]{
-    /*Styling the login input*/
+form input[type="text"], 
+form input[type="password"]{
+    /* Form field styling */
     height: 55px;
     margin: 5px 0;
     border: 0.5px solid #b8b8b85b;
@@ -50,7 +46,7 @@ form input[type="text"], input[type="password"]{
 }
 
 form a{
-    /*styling links*/
+    /* Accent color for links defined in variables */
     margin: 10px 0;
     text-decoration: none;
     color: var(--main-color);
@@ -58,7 +54,7 @@ form a{
 }
 
 form input[type="submit"] {
-    /*style the button*/
+    /* Primary button styling */
     height: 50px;
     background: var(--main-color);
     font-size: 20px;
@@ -70,19 +66,20 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover{
-    /*Create a hover over the button*/
+form input[type="submit"]:hover {
+    /* Interactive hover effect with shadow and movement */
     box-shadow: var(--hover-shadow);
     transform: translateY(-3px);
 }
 
-.footer h3{
-    /*styling h3*/
+.footer h3 {
+    /* Subdued heading for alternative login section */
     font-size: 16px;
     opacity: 0.9;
 }
 
 .footer .images {
+    /* Grid layout for social login icons */
     display: flex;
     height: 10vh;
     align-items: center;
@@ -91,20 +88,25 @@ form input[type="submit"]:hover{
 }
 
 .footer .images img {
+    /* Social login button styling */
     width: 15%;
     border: 1px solid #e7e7e7;
     padding: 15px;
     border-radius: 3px;
-    transition: 0.3s easy;
+    transition: 0.3s ease; 
 }
 
 .footer .images img:hover {
+    /* Interactive hover effect for social buttons */
     box-shadow: var(--hover-shadow);
     cursor: pointer;
 }
 
-.footer a {
-    float: right;
+.container > a { 
+    /* Right-aligned secondary link */
+    display: block;
+    text-align: right;
     color: var(--main-color);
     margin: 10px 0;
+    text-decoration: none;
 }

@@ -1,0 +1,118 @@
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+/* Page background */
+body {
+    background: #f0f0f0;
+}
+
+/* Default image size (100% of container) */
+img {
+    width: 100%;
+}
+
+/* Remove underline from links */
+a {
+    text-decoration: none;
+}
+
+/* Card grid layout - 2 columns */
+.card-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+}
+
+/* Individual card styling */
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 60%;
+    margin: 5rem auto; 
+    background: #ffffff;
+    padding: 50px 25px;
+    text-align: center;
+    color: #333;
+    position: relative;
+    box-shadow: 18px 17px 0px -7px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px; 
+}
+
+/* Main card icon styling */
+.card > img {
+    width: 50%;
+    margin: 30px auto;
+}
+
+/* Card title styling */
+.card div h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Card paragraph styling */
+.card div p {
+    margin-bottom: 20px;
+    line-height: 1.5; 
+}
+
+/* "PROCEED" */
+.bottom {
+    background: #02d484;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease; 
+}
+
+/* Hover effect for proceed button */
+.bottom:hover {
+    background: #01b36e; 
+}
+
+/* Social media icon container */
+.card .div-images {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 40px;
+    justify-content: center; 
+}
+
+/* Individual social media icon styling */
+.card .div-images img {
+    margin: 0 7px;
+    border: 1px solid rgba(51, 51, 51, 0.198);
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    width: 30%; 
+    max-width: 50px; 
+}
+
+/* Hover effect for social media icons */
+.card .div-images img:hover {
+    box-shadow: 3px 5px 5px 5px rgba(49, 22, 22, 0.3);
+    transform: translateY(-3px); 
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1024px) {
+    .card-section {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    
+    .card {
+        width: 80%; /* Wider cards on smaller screens */
+    }
+}
