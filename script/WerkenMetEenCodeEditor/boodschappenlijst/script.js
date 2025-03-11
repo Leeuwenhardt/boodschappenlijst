@@ -2,14 +2,16 @@ const table = document.getElementById('table')
 const price = document.getElementsByClassName('productPrice');
 const quantity = document.getElementsByClassName('productQuantity');
 const total = document.getElementsByClassName('productTotalCost');
+const sum = document.getElementById('totalCost')
+
+table.addEventListener("change", (event) => {
+    console.log('Aantal producten is gewijzigd', event.target.value);
+});
 
 function productChange() {
-    table.addEventListener("change", () => {
-        console.log('Aantal producted is gewijzigd', table.value);
-    })
-    
-    //for( i = 0; { productTotalCost = productPrice * productQuantity })
-    
+    for (let i = 0; i < quantity.length; i++) {
+        console.log(i, price[i], quantity[i], total[i])
+    } 
 };
 
 
