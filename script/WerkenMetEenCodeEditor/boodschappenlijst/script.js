@@ -1,26 +1,30 @@
-const table = document.getElementById('table')
+const table = document.getElementById('table');
 const prices = document.getElementsByClassName('productPrice');
 const quantities = document.getElementsByClassName('productQuantity');
 const totals = document.getElementsByClassName('productTotalCost');
-const sum = document.getElementById('totalCost');
+const totalSum = document.getElementById('totalCost');
 
 table.addEventListener("input", (event) => {
     if (event.target.classList.contains('productQuantity')) {
         console.log('Aantal producten is gewijzigd:', event.target.value);
-        productChange(); 
+        productChange();
     }
 });
 
 function productChange() {
-    let totalSum = 0;
+    let sum = 0;
+    
     for (let i = 0; i < prices.length; i++) {
-        const price = prices[i].innerHTML;
-        const quantity = quantities[i].value;
-        totals = price * quantity;
-
-        totals[i].innerHTML = totals.toFixed(2);
-        totalSum += totals;
-    } 
-};
+        const price = parseFloat(prices[i].innerHTML.replace(',', '.'));
+        const quantity = parseInt(quantities[i].value);
+        
+        const subtotal = price * quantity;
+        totals[i].innerHTML = subtotal.toFixed(2).replace('.', ',');
+        
+        sum += subtotal;
+    }
+    
+    totalSum.innerHTML = sum.toFixed(2).replace('.', ',');
+}
 
 productChange();
