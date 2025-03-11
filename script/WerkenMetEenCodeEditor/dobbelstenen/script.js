@@ -26,7 +26,7 @@ function rollDice() {
     }
     //Manipulate table
     for (let key in count) {
-        amount[key-1].textContent = count[key];
+        amount[key-1].innerHTML = count[key];
         }    
 }
 
