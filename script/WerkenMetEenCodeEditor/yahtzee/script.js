@@ -1,6 +1,6 @@
 const button = document.getElementById('button');
 const amount = document.getElementsByClassName('amount');
-const rng = [];
+const thrownDice = [];
 
 function rollDice() {
 
@@ -13,27 +13,38 @@ function rollDice() {
         6: 0    
     };
 
-    //Manipulate rng array
-    rng.length = 0;
+    //Manipulate thrownDice array
+    thrownDice.length = 0;
     for (let i = 0; i < 5; i++) {
-    let num = Math.floor(Math.random() * 6 + 1);
-    rng.push(num);
+        let die = Math.floor(Math.random() * 6 + 1);
+        thrownDice.push(die);
     }
     
     //Manipulate count array
-    for (let num of rng) {
-        count[num]++
+    for (let die of thrownDice) {
+        count[die]++
     }
 
     //Manipulate table
     for (let key in count) {
         amount[key-1].innerHTML = count[key];
-        }    
+    }    
+        
 }
 
-function addItems() {
+function sumOfAllDice() {
+    //Manipulate sum up of all dices
+    return thrownDice.reduce((accumulator, currentValue) => accumulator + currentValue)
+}
+
+console.log(sumOfAllDice)
+
+function scoreCard() {
 
 }
+
+
 
 button.addEventListener('click', rollDice);
+console.log(sumOfAllDice)
 
