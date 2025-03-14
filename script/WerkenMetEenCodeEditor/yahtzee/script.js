@@ -9,12 +9,13 @@ function rollDice() {
         2: 0,
         3: 0,
         4: 0,
-        5: 0   
+        5: 0,
+        6: 0    
     };
 
     //Manipulate rng array
     rng.length = 0;
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
     let num = Math.floor(Math.random() * 6 + 1);
     rng.push(num);
     }
@@ -23,13 +24,16 @@ function rollDice() {
     for (let num of rng) {
         count[num]++
     }
+
     //Manipulate table
     for (let key in count) {
         amount[key-1].innerHTML = count[key];
         }    
 }
 
+function addItems() {
 
-
+}
 
 button.addEventListener('click', rollDice);
+

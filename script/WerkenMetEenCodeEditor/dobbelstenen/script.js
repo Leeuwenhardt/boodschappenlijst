@@ -24,14 +24,12 @@ function rollDice() {
     for (let num of rng) {
         count[num]++
     }
+
     //Manipulate table
     for (let key in count) {
         amount[key-1].innerHTML = count[key];
         }    
 }
-
-
-
 
 button.addEventListener('click', rollDice);
 
