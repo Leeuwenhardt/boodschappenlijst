@@ -5,10 +5,10 @@ const boeken = [
     { titel: "Het Achterhuis", prijs: 10.99 }
 ];
 
-totaalprijs = 0;
-for (prijs in boeken) {
-    console.log(`${prijs}: ${boeken}`)
+let totaalPrijs = 0;
 
+for (let boek of boeken) {
+    totaalPrijs += boek.prijs;
 }
 
-console.log(prijs)
+console.log(`De totale prijs van alle boeken is: €${totaalPrijs.toFixed(2)}`);
