@@ -1,5 +1,7 @@
 const button = document.getElementById('button');
-const amount = document.getElementsByClassName('amount');
+const amountUpper = document.getElementsByClassName('amountUpper');
+const amountBottom = document.getElementsByClassName('amountBottom');
+
 const thrownDice = [];
 
 function rollDice() {
@@ -12,59 +14,61 @@ function rollDice() {
         6: 0    
     };
 
-    //Manipulate thrownDice array
+    // Manipulate thrownDice array
     thrownDice.length = 0;
     for (let i = 0; i < 5; i++) {
-        let die = Math.floor(Math.random() * 6 + 1);
+        let die = Math.floor(Math.random() * 2 + 1);
         thrownDice.push(die);
+        count[die]++
     }
     
-    // Manipulate count array
-    for (let die of thrownDice) {
-        count[die]++;
-    }
-
     // Manipulate table
     for (let key in count) {
-        amount[key - 1].innerHTML = count[key];
+        amountUpper[key - 1].innerHTML = count[key];
+    }
+
+    // Detect dice matching
+    for (let num in count) {
+        if (count[num] >= 5) {
+            console.log(yahtzee)
+            document.getElementById('yahtzee').innerHTML = 50
+        } else if (count[num] >= 4) {
+            console.log(carre)
+            document.getElementById('carre').innerHTML = sumOfAllDice() 
+        } else if (count[num] >= 3) {
+            console.log(threeOfAKind)
+            document.getElementById('threeOfAKind').innerHTML = sumOfAllDice()             
+        }
+    }
+
+    if ((count[0] === count[1])&&(count[2] === count[4])) {
+        document.getElementById('fullHouse').innerHTML = 25;
+    } else if ((count[0] === count[2])&&(count[3] === count[4])) {
+        document.getElementById('fullHouse').innerHTML = 25;
     }
 
     // Calculate and display scores
-    scoreCard(count);
+    scoreCard();
 }
 
 function sumOfAllDice() {
     return thrownDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 }
 
-function scoreCard(count) {
-    // Calculate die
-    const ones = count[1] * 1;
-    const twos = count[2] * 2;
-    const threes = count[3] * 3;
-    const fours = count[4] * 4;
-    const fives = count[5] * 5;
-    const sixes = count[6] * 6;
-
-    // Calculate total points
-    const totalPoints = ones + twos + threes + fours + fives + sixes;
-
-    // Check for bonus
-    const bonus = totalPoints >= 63 ? 35 : 0;
-
+function scoreCard() {
+     const bonus = sumOfAllDice() >= 63 ? 35 : 0;
+    
     // Calculate grand total
-    const grandTotal = totalPoints + bonus;
-
+    const grandTotal = sumOfAllDice() + bonus;
+    const generalTotal = amountBottom + amountUpper;
+    
     // Update the table with scores
-    document.getElementById('ones').innerHTML = ones;
-    document.getElementById('twos').innerHTML = twos;
-    document.getElementById('threes').innerHTML = threes;
-    document.getElementById('fours').innerHTML = fours;
-    document.getElementById('fives').innerHTML = fives;
-    document.getElementById('sixes').innerHTML = sixes;
-    document.getElementById('totalPoints').innerHTML = totalPoints;
+    document.getElementById('totalPoints').innerHTML = sumOfAllDice();
     document.getElementById('bonus').innerHTML = bonus;
     document.getElementById('grandTotal').innerHTML = grandTotal;
+    document.getElementById('generalTotal').innerHTML = generalTotal;
+    //document.getElementById('generalTotal').innerHTML = generalTotal;
+    
 }
 
 button.addEventListener('click', rollDice)

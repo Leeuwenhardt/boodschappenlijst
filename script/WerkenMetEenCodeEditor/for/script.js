@@ -12,3 +12,11 @@ for (let boek of boeken) {
 }
 
 console.log(`De totale prijs van alle boeken is: €${totaalPrijs.toFixed(2)}`);
+
+const studenten = [
+    { naam: "Jan", cijfers: [7, 8, 6, 9] },
+    { naam: "Piet", cijfers: [9, 7, 8, 6] },
+    { naam: "Klaas", cijfers: [6, 5, 7, 8] },
+    { naam: "Marieke", cijfers: [8, 9, 7, 8] }
+];
+

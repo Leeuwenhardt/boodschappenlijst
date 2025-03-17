@@ -4,12 +4,7 @@ const quantities = document.getElementsByClassName('productQuantity');
 const totals = document.getElementsByClassName('productTotalCost');
 const totalSum = document.getElementById('totalCost');
 
-table.addEventListener("input", (event) => {
-    if (event.target.classList.contains('productQuantity')) {
-        console.log('Aantal producten is gewijzigd:', event.target.value);
-        productChange();
-    }
-});
+table.addEventListener("change", productChange);
 
 function productChange() {
     let sum = 0;

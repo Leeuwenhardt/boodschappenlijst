@@ -9,54 +9,129 @@
 <body>
     <button id="button" type="button">Gooien!</button>
     <table>
+        <h1>Deel 1</h1>
         <tr>
-            <th>Dice</th>
+            <th colspan="2">Dice</th>
             <th>Punten telling</th>
             <th>Aantal</th>
         </tr>
         <tr>
             <td>Enen</td>
+            <td id="die">&#x2680;</td>
             <td>Tel alle Enen</td>
-            <td class="amount" id="ones">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td>Tweeën</td>
+            <td id="die">&#x2681;</td>
             <td>Tel alle Tweeën</td>
-            <td class="amount" id="twos">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td>Drieën</td>
+            <td id="die">&#x2682;</td>
             <td>Tel alle Drieën</td>
-            <td class="amount" id="threes">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td>Vieren</td>
+            <td id="die">&#x2683;</td>
             <td>Tel alle Vieren</td>
-            <td class="amount" id="fours">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td>Vijfen</td>
+            <td id="die">&#x2684;</td>
             <td>Tel alle vijfen</td>
-            <td class="amount" id="fives">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td>Zessen</td>
+            <td id="die">&#x2685;</td>
             <td>Tel alle Zessen</td>
-            <td class="amount" id="sixes">0</td>
+            <td class="amountUpper">0</td>
         </tr>
         <tr>
             <td colspan="2">Totaal aantal punten</td>
+            <td id="values">&rarr;</td>
             <td id="totalPoints">0</td>
         </tr>
         <tr>
             <td>Bonus</td>
-            <td>35 punten</td>
+            <td id="values">Als puntentotaal 63 of meer is</td>
+            <td id="values">35 punten</td>
             <td id="bonus">0</td>
         </tr>
         <tr>
             <td>Totaal</td>
-            <td></td>
+            <td id="values">van de bovenste helft</td>
+            <td id="values">&rarr;</td>
             <td id="grandTotal">0</td>
+        </tr>
+    </table>
+    <table>
+        <h1>Deel 2</h1>
+        <th colspan="2">Dice</th>
+        <th>Punten telling</th>
+        <th>Aantal</th>
+        <tr>
+            <td>Three of a kind</td>
+            <td id="values">3 dezelfde</td>
+            <td>Totaal v.d 5 stenen</td>
+            <td id="threeOfAKind">0</td>
+        </tr>
+        <tr>
+            <td>Carré</td>
+            <td id="values">4 dezelfde</td>
+            <td>Totaal v.d 5 stenen</td>
+            <td id="carre">0</td>
+        </tr>
+        <tr>
+            <td>Full House</td>
+            <td id="values">2+3 dezelfde</td>
+            <td>25 punten</td>
+            <td id="fullHouse">0</td>
+        </tr>
+        <tr>
+            <td>Kleine straat</td>
+            <td id="values">4 opeenvolgende nummers</td>
+            <td>30 punten</td>
+            <td id="smallStreet">0</td>
+        </tr>
+        <tr>
+            <td>Grote straat</td>
+            <td id="values">5 opeenvolgende nummers</td>
+            <td>40 punten</td>
+            <td id="bigStreet">0</td>
+        </tr>
+        <tr>
+            <td>Yahtzee</td>
+            <td id="values">5 dezelfde</td>
+            <td>50 punten</td>
+            <td id="yahtzee">0</td>
+        </tr>
+        <tr>
+            <td>Change</td>
+            <td id="values">vrije keus</td>
+            <td>Totaal v.d 5 stenen</td>
+            <td id="totalPoints">0</td>
+        </tr>
+        <tr>
+            <td>Totaal</td>
+            <td id="values">van de onderste helft</td>
+            <td id="values">&rarr;</td>
+            <td class="amountBottom">0</td>
+        </tr>
+        <tr>
+            <td>Totaal</td>
+            <td id="values">van de bovenste helft</td>
+            <td id="values">&rarr;</td>
+            <td id="totalPoints">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">Totaal Generaal</td>
+            <td id="values">&rarr;</td>
+            <td id="generalTotal">0</td>
         </tr>
     </table>
     <script src="script.js"></script>

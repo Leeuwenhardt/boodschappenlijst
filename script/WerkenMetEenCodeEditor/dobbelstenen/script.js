@@ -16,19 +16,19 @@ function rollDice() {
     //Manipulate rng array
     rng.length = 0;
     for (let i = 0; i < 8; i++) {
-    let num = Math.floor(Math.random() * 6 + 1);
-    rng.push(num);
+        let num = Math.floor(Math.random() * 6 + 1);
+        count[num]++
+        rng.push(num);
     }
     
     //Manipulate count array
-    for (let num of rng) {
-        count[num]++
-    }
+    // for (let num of rng) {
+    // }
 
     //Manipulate table
     for (let key in count) {
         amount[key-1].innerHTML = count[key];
-        }    
+    }
 }
 
 button.addEventListener('click', rollDice);

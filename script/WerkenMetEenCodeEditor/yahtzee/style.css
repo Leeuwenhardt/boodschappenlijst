@@ -1,16 +1,30 @@
 /* Global */
 
 * {
+    font-family: 'Times New Roman', Times, serif;
     margin: 5px;
-    padding: 5px
+    font-size: 18px;
+
 }
 
 td {
     margin: 30px;
-    padding: 20px;
+    padding: 10px;
 }
 
 button {
-    text-align: center;
+    display: block;
+    margin: auto;
     
+}
+
+#die {
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#values {
+    font-size: 12px;
+    text-align: right;
 }
