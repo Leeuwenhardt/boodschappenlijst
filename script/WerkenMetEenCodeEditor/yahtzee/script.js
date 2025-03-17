@@ -5,6 +5,8 @@ const amountBottom = document.getElementsByClassName('amountBottom');
 const thrownDice = [];
 
 function rollDice() {
+    // reset each roll
+    document.querySelectorAll('.amountUpper, .totalPoints, #bonus, #grandTotal, #generalTotal, #threeOfAKind, #carre, #fullHouse, #smallStreet, #bigStreet, #yahtzee').forEach(cell => cell.innerHTML = 0);
     const count = {
         1: 0,
         2: 0,
@@ -17,7 +19,7 @@ function rollDice() {
     // Manipulate thrownDice array
     thrownDice.length = 0;
     for (let i = 0; i < 5; i++) {
-        let die = Math.floor(Math.random() * 2 + 1);
+        let die = Math.floor(Math.random() * 6 + 1);
         thrownDice.push(die);
         count[die]++
     }
@@ -29,7 +31,7 @@ function rollDice() {
 
     // Detect dice matching
     for (let num in count) {
-        if (count[num] >= 5) {
+        if (count[num] >= 5) { 
             console.log(yahtzee)
             document.getElementById('yahtzee').innerHTML = 50
         } else if (count[num] >= 4) {
@@ -41,10 +43,41 @@ function rollDice() {
         }
     }
 
-    if ((count[0] === count[1])&&(count[2] === count[4])) {
+    if ((count[1] === 3 || count[2] === 3 || count[3] === 3 || count[4] === 3 || 
+        count[5] === 3 || count[6] === 3) &&
+        (count[1] === 2 || count[2] === 2 || count[3] === 2 || count[4] === 2 || 
+        count[5] === 2 || count[6] === 2)) {
         document.getElementById('fullHouse').innerHTML = 25;
-    } else if ((count[0] === count[2])&&(count[3] === count[4])) {
-        document.getElementById('fullHouse').innerHTML = 25;
+        console.log(fullHouse)
+    }
+
+    // Detect straight dice
+    const straightDice = [...thrownDice].sort((a, b) => a - b); 
+    let consecutiveCount = 1; 
+    let maxConsecutive = 1; 
+
+    // Formula on checking for consecutive numbers
+    for (let i = 1; i < straightDice.length; i++) {
+        if (straightDice[i] === straightDice[i - 1] + 1) {
+            consecutiveCount++; 
+            if (consecutiveCount > maxConsecutive) {
+                maxConsecutive = consecutiveCount; 
+            }
+        } else if (straightDice[i] !== straightDice[i - 1]) {
+            consecutiveCount = 1; // Reset if it doesn't match
+        }
+    }
+    
+    // Check for small street 
+    if (maxConsecutive >= 4) {
+        document.getElementById('smallStreet').textContent = 30;
+        console.log(smallStreet)
+    }
+    
+    // Check for big street 
+    if (maxConsecutive >= 5) {
+        document.getElementById('bigStreet').textContent = 40;
+        console.log(bigStreet)
     }
 
     // Calculate and display scores
@@ -56,19 +89,22 @@ function sumOfAllDice() {
 }
 
 function scoreCard() {
-     const bonus = sumOfAllDice() >= 63 ? 35 : 0;
+    const bonus = sumOfAllDice() >= 63 ? 35 : 0;
     
     // Calculate grand total
     const grandTotal = sumOfAllDice() + bonus;
-    const generalTotal = amountBottom + amountUpper;
+    const generalTotal = amountBottom + grandTotal; 
     
-    // Update the table with scores
-    document.getElementById('totalPoints').innerHTML = sumOfAllDice();
+    // It works.
+    const totalPointsElements = document.getElementsByClassName('totalPoints');
+    for (let element of totalPointsElements) {
+        element.innerHTML = sumOfAllDice();
+    }
+    
+    // Update other scores
     document.getElementById('bonus').innerHTML = bonus;
     document.getElementById('grandTotal').innerHTML = grandTotal;
     document.getElementById('generalTotal').innerHTML = generalTotal;
-    //document.getElementById('generalTotal').innerHTML = generalTotal;
-    
 }
 
 button.addEventListener('click', rollDice)
