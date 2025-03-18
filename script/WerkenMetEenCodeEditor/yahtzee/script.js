@@ -1,6 +1,7 @@
-const button = document.getElementById('button');
-const amountUpper = document.getElementsByClassName('amountUpper');
+const button = document.getElementById('button'); // btnThrowDices
+const amountUpper = document.getElementsByClassName('amountUpper'); // meervouyd in variable naam
 const amountBottom = document.getElementsByClassName('amountBottom');
+
 
 const thrownDice = [];
 
@@ -32,13 +33,10 @@ function rollDice() {
     // Detect dice matching
     for (let num in count) {
         if (count[num] >= 5) { 
-            console.log(yahtzee)
             document.getElementById('yahtzee').innerHTML = 50
         } else if (count[num] >= 4) {
-            console.log(carre)
             document.getElementById('carre').innerHTML = sumOfAllDice() 
         } else if (count[num] >= 3) {
-            console.log(threeOfAKind)
             document.getElementById('threeOfAKind').innerHTML = sumOfAllDice()             
         }
     }
@@ -51,12 +49,12 @@ function rollDice() {
         console.log(fullHouse)
     }
 
-    // Detect straight dice
+    // Set dice to ascending
     const straightDice = [...thrownDice].sort((a, b) => a - b); 
     let consecutiveCount = 1; 
     let maxConsecutive = 1; 
 
-    // Formula on checking for consecutive numbers
+    // Formula on checking for consecutive numbers from ascending
     for (let i = 1; i < straightDice.length; i++) {
         if (straightDice[i] === straightDice[i - 1] + 1) {
             consecutiveCount++; 
@@ -71,17 +69,12 @@ function rollDice() {
     // Check for small street 
     if (maxConsecutive >= 4) {
         document.getElementById('smallStreet').textContent = 30;
-        console.log(smallStreet)
     }
     
     // Check for big street 
     if (maxConsecutive >= 5) {
         document.getElementById('bigStreet').textContent = 40;
-        console.log(bigStreet)
     }
-
-    // Calculate and display scores
-    scoreCard();
 }
 
 function sumOfAllDice() {
@@ -90,22 +83,30 @@ function sumOfAllDice() {
 
 function scoreCard() {
     const bonus = sumOfAllDice() >= 63 ? 35 : 0;
+
+    let totalBottom = 0;
+    for (let element of amountBottom) {
+        totalBottom += parseInt(element.innerHTML) || 0;
+    }
     
     // Calculate grand total
     const grandTotal = sumOfAllDice() + bonus;
-    const generalTotal = amountBottom + grandTotal; 
-    
-    // It works.
-    const totalPointsElements = document.getElementsByClassName('totalPoints');
-    for (let element of totalPointsElements) {
-        element.innerHTML = sumOfAllDice();
-    }
-    
+    const generalTotal = totalBottom + grandTotal; 
+
+   
     // Update other scores
+    document.getElementById('totalPoints').innerHTML = sumOfAllDice();
+    document.getElementById('freeChoice').innerHTML = sumOfAllDice();
+    document.getElementById('totalTop').innerHTML = sumOfAllDice();
+    document.getElementById('totalBottom').innerHTML = totalBottom
     document.getElementById('bonus').innerHTML = bonus;
     document.getElementById('grandTotal').innerHTML = grandTotal;
     document.getElementById('generalTotal').innerHTML = generalTotal;
 }
 
-button.addEventListener('click', rollDice)
+button.addEventListener('click', () => {
+    rollDice();
+    // Calculate and display scores
+    scoreCard();
+})
 
