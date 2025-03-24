@@ -34,9 +34,7 @@ function xOfAKind(valueToSearchFor){
             consecutiveCount = 1; // Reset if it doesn't match
         }
     }
-    
     return false
-    
 }
 
 let count = {
@@ -99,7 +97,6 @@ function scoreCard() {
     // Calculate grand total
     const grandTotal = sumOfAllDice() + bonus;
     const generalTotal = totalBottom + grandTotal; 
-
    
     // Update other scores
     document.getElementById('totalPoints').textContent = sumOfAllDice();
@@ -116,4 +113,3 @@ button.addEventListener('click', () => {
     // Calculate and display scores
     scoreCard();
 })
-
