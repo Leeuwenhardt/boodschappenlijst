@@ -1,7 +1,6 @@
 <?php
 namespace Codecademy;
 
-// Write your code below:
 function calculateDistance($num, $num2) {
  return abs($num - $num2);
 }
