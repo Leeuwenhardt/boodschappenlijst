@@ -1,0 +1,22 @@
+* {
+    font-style: sans-serif;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #888;
+    padding: 10px;
+}
+
+td:nth-child(4) {
+    text-align: right;
+}
+
+th {
+    border: 1px solid #888;
+    text-align: left;   
+}
+
+#totalCost {
+    text-align: right;
+}
