@@ -14,7 +14,7 @@
         <th>Subtotaal</th>
       </tr>
       <tr>
-        <td>Brood</td>
+        <td class="product">Brood</td>
         <td class="productPrice">1,00</td>
         <td>
           <input type="number" class="productQuantity" value="1" min="0" max="99" />
@@ -22,7 +22,7 @@
         <td class="productTotalCost">1,00</td>
       </tr>
       <tr>
-        <td>Brocolli</td>
+        <td class="product">Brocolli</td>
         <td class="productPrice">0,99</td>
         <td>
           <input type="number" class="productQuantity" value="2" min="0" max="99" />
@@ -30,7 +30,7 @@
         <td class="productTotalCost">1,98</td>
       </tr>
       <tr>
-        <td>Krentebollen</td>
+        <td class="product">Krentebollen</td>
         <td class="productPrice">1,20</td>
         <td>
           <input type="number" class="productQuantity" value="4" min="0" max="99" />
@@ -38,7 +38,7 @@
         <td class="productTotalCost">1,20</td>
       </tr>
       <tr>
-        <td>Noten</td>
+        <td class="product">Noten</td>
         <td class="productPrice">2,99</td>
         <td>
             <input type="number" class="productQuantity" value="0" min="0" max="99" />

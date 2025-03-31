@@ -10,16 +10,16 @@ function productChange() {
     let sum = 0;
     
     for (let i = 0; i < prices.length; i++) {
-        const price = parseFloat(prices[i].innerHTML.replace(',', '.'));
+        const price = parseFloat(prices[i].textContent.replace(',', '.'));
         const quantity = parseInt(quantities[i].value);
         
         const subtotal = price * quantity;
-        totals[i].innerHTML = subtotal.toFixed(2).replace('.', ',');
+        totals[i].textContent = subtotal.toFixed(2).replace('.', ',');
         
         sum += subtotal;
     }
     
-    totalSum.innerHTML = sum.toFixed(2).replace('.', ',');
+    totalSum.textContent = sum.toFixed(2).replace('.', ',');
 }
 
 productChange();
