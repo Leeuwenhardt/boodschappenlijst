@@ -13,8 +13,42 @@
         <th>Aantal</th>
         <th>Subtotaal</th>
       </tr>
+      <?php foreach ($checkOut as $purchase) : ?>
       <tr>
-        <td class="product">Brood</td>
+        <td>
+          <a href="<?= $purchase['product'] ?>">
+            <?= $purchase['product']; ?>
+          </a>
+        </td>
+        <td>
+          <a href="<?= $purchase['price'] ?>">
+            <?= $purchase['price']; ?>
+          </a>
+        </td>
+        <td>
+          <a href="<?= $purchase['amount'] ?>">
+            <?= $purchase['amount']; ?>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="<?= $purchase['subTotal'] ?>">
+            <?= $purchase['subTotal']; ?>
+          </a>
+        </td>
+      </tr>
+      </tr>
+      <?php endforeach; ?>
+      <tr>
+        <th colspan="3">Totaal</th>
+        <td>
+          <a href="<?= $total ?>">
+            <?= $total; ?>
+          </a>
+        </td>
+      </tr>
+        <!-- <td class="product">Brood</td>
         <td class="productPrice">1,00</td>
         <td>
           <input type="number" class="productQuantity" value="1" min="0" max="99" />
@@ -48,8 +82,7 @@
       <tr>
         <th colspan="3">Totaal</th>
         <td id="totalCost">7,78</td>
-      </tr>
-      <script src="script.js"></script>
+      </tr>-->
     </table>
   </body>
 </html>
