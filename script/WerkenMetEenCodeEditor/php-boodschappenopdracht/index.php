@@ -1,5 +1,4 @@
-<?=
-
+<?php
 //Creating the array
 $checkOut = [
     [
@@ -33,9 +32,7 @@ function totalAmount($total, $checkOut) {
     return $total += $checkOut['subTotal'];
 }
 
-$total = array_reduce($checkOuts, 'totalAmount', 0);
-
-echo $total;
+$total = array_reduce($checkOut, 'totalAmount', 0);
 
 // Call the correct php file :) (arrayarrayarrayarray)
 require "index.view.php";

@@ -13,6 +13,7 @@
         <th>Aantal</th>
         <th>Subtotaal</th>
       </tr>
+      <!-- run a foreach to create the table -->
       <?php foreach ($checkOut as $purchase) : ?>
       <tr>
         <td>
@@ -22,12 +23,12 @@
         </td>
         <td>
           <a href="<?= $purchase['price'] ?>">
-            <?= $purchase['price']; ?>
+          €<?= $purchase['price']; ?>
           </a>
         </td>
         <td>
           <a href="<?= $purchase['amount'] ?>">
-            <?= $purchase['amount']; ?>
+          <?= $purchase['amount']; ?>
           </a>
         </td>
       </tr>
@@ -42,11 +43,11 @@
       <?php endforeach; ?>
       <tr>
         <th colspan="3">Totaal</th>
-        <td>
-          <a href="<?= $total ?>">
-            <?= $total; ?>
-          </a>
-        </td>
+          <td>
+            <a href="?total=<?= number_format($total, 2) ?>">
+              €<?= number_format($total, 2) ?>
+            </a>
+          </td>
       </tr>
         <!-- <td class="product">Brood</td>
         <td class="productPrice">1,00</td>
