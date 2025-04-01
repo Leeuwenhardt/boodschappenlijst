@@ -1,4 +1,7 @@
 <?php
+
+$heading = 'Overzicht';
+
 //Creating the array
 $checkOut = [
     [
@@ -35,5 +38,5 @@ function totalAmount($total, $checkOut) {
 $total = array_reduce($checkOut, 'totalAmount', 0);
 
 // Call the correct php file :) (arrayarrayarrayarray)
-require "../views/index.view.php";
-require "../functions.php";
+require ("../views/index.view.php");
+
