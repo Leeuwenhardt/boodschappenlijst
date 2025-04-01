@@ -35,4 +35,5 @@ function totalAmount($total, $checkOut) {
 $total = array_reduce($checkOut, 'totalAmount', 0);
 
 // Call the correct php file :) (arrayarrayarrayarray)
-require "index.view.php";
+require "../views/index.view.php";
+require "../functions.php";
