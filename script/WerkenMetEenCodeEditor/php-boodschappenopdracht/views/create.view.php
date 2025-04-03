@@ -19,7 +19,7 @@
 		</div>
 		<div>
 			<label for="quantity">Quantity:</label>
-			<input type="text" id="amount" name="amount" value="<?php echo isset($_POST['amount']) ?? '' ; ?>"required>
+			<input type="text" id="quantity" name="quantity" value="<?php echo isset($_POST['quantity']) ?? '' ; ?>"required>
 		</div>
 		<div>
 			<label for="price">Unit price:</label>
