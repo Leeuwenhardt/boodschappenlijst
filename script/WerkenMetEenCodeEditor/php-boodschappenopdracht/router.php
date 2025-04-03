@@ -1,6 +1,9 @@
 <?php
 
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
 $routes = [
+    '/' => 'index.php',
     '/overzicht' => 'controllers.index.php',
     '/toevoegen' => 'controllers.create.php',
 ];
@@ -14,11 +17,9 @@ function routeToController($uri, $routes) {
 }
 
 function abort() {
-    http_response_code(404);
+    http_response_code();
 
     require "views/404.php";
-
-    echo "Sorry. Not found.";
 
     die();
 }

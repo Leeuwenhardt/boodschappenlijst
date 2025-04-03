@@ -1,7 +1,5 @@
 <?php
 
-$heading = 'Overzicht';
-
 //Creating the array
 $checkOut = [
     [
