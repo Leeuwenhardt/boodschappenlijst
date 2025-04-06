@@ -1,5 +1,7 @@
+</div>
 <footer class="section">
-    <div class="center grey-text">lopus ipum</div>
+    <div class="center grey-text">lopus ipsum</div>
 </footer>
 
 </body>
+</html>
