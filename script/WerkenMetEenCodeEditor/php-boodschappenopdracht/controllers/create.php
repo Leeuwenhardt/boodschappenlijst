@@ -9,10 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     $validator = new Validator();
-
+    // string validate
     if (! $validator->string($_POST['name'], 1, 50)) {
-        $errors['name'] = "A name no more than 50 characters is required";
+        $errors['name'] = "Product naam kan niet groter dan 50 karakters zijn";
     }
+
+        // integer validate
+        if (! $validator->integer($_POST['quantity'] ?? 0, 1)) {
+            $errors['quantity'] = "Aantal moet minstens 1 zijn";
+        }
+
+        // price validate
+        if (! $validator->decimal($_POST['price'] ?? 0, 0.01)) {
+            $errors['price'] = "Prijs moet groter zijn dan 0";
+        }
 
     if (empty($errors)) {
     $db->query('INSERT INTO groceries(name, quantity, price) VALUES(:name, :quantity, :price)', [
