@@ -35,6 +35,8 @@ function totalAmount($total, $checkOut) {
 
 $total = array_reduce($checkOut, 'totalAmount', 0);
 
+$posts = $db->query('select * from groceries')->get();
+
 
 
 

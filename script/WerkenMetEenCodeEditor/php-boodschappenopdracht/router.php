@@ -2,13 +2,7 @@
 
 $routes = require('routes.php');
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-$routes = [
-    '/' => 'index.php',
-    '/overzicht' => 'controllers.index.php',
-    '/toevoegen' => 'controllers.create.php',
-];
+$uri = parse_url($_SERVER['REQUEST_URI'])['path']; 
 
 function routeToController($uri, $routes) {
     if (array_key_exists($uri, $routes)) {
@@ -18,10 +12,10 @@ function routeToController($uri, $routes) {
     }
 }
 
-function abort() {
-    http_response_code();
+function abort($code = 404) {
+    http_response_code($code);
 
-    require "views/404.php";
+    require "views/{$code}.php";
 
     die();
 }

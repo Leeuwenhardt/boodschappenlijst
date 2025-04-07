@@ -2,13 +2,21 @@
 <?php require('partials/nav.php')?>
 <header class="bg-white shadow-sm">
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Toevoegen</h1>
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Notes</h1>
 </div>
 </header>
 <main>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 <body>
 	<!-- product toevoegen -->
+
+	<?php foreach ($posts as $post) : ?>
+		<li>
+			<a href="/notes" class="text-blue hover:underline">Go back...
+				<p><?= $post['body']?></p>
+			</a>
+		</li>
+	<?php endforeach; ?>
 	<form action="create.php" method="post">
 		<div>
 			<label for="name">Name:</label>

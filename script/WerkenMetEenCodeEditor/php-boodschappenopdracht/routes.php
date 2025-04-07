@@ -1,7 +1,8 @@
 <?php
 
 return [
-    '/' => 'index.php',
-    '/overzicht' => 'controllers.index.php',
-    '/toevoegen' => 'controllers.create.php',
+    '/' => 'controllers/index.php',
+    '/create' => 'controllers/create.php',
+    '/overview' => 'controllers/index.php',
+    '/notes' => 'controllers/notes.php'
 ];

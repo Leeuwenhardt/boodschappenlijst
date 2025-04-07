@@ -1,5 +1,3 @@
-<?= 
-$heading = 'toevoegen';
+<?php
 
-//getting the correct require
-require ("../views/create.view.php");
+require 'views/create.view.php';
