@@ -16,31 +16,22 @@
       <th>Subtotaal</th>
     </tr>
     <!-- run a foreach to create the table -->
-    <?php foreach ($checkOut as $purchase) : ?>
+    <?php foreach ($groceries as $purchase) : ?>
     <tr>
       <td>
-        <a href="<?= $purchase['product'] ?>">
-          <?= $purchase['product']; ?>
-        </a>
+        <?= $purchase['name'] ?>
       </td>
       <td>
-        <a href="<?= $purchase['price'] ?>">
         €<?= $purchase['price']; ?>
-        </a>
       </td>
       <td>
-        <a href="<?= $purchase['amount'] ?>">
-        <?= $purchase['amount']; ?>
-        </a>
+		<?= $purchase['quantity']; ?>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="<?= $purchase['subTotal'] ?>">
           <?= $purchase['subTotal']; ?>
-        </a>
       </td>
-    </tr>
     </tr>
     <?php endforeach; ?>
     <tr>
