@@ -4,7 +4,6 @@ $config = require('config.php');
 $db = new Database($config['database']);
 
 $groceries = $db->query("select * from groceries")->fetchAll();
-// $groceries = $db->query('select * from groceries where id = :id', ['id' => $_GET[$id]])->fetchAll();
 
 //Declare total with array_reduce
 // function totalAmount($total, $checkOut) {

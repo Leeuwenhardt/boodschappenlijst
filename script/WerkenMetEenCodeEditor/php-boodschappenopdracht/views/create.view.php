@@ -8,22 +8,28 @@
 <main>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 <body>
-	<!-- product toevoegen -->
-	<form action="create.php" method="post">
+
+	<div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+	<form method="post">
 		<div>
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ?? '' ; ?>"required>
+			<label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+            <textarea id="name" name="name" placeholder="Voeg naam van het product toe"></textarea>
+			<?php if (isset($errors['name'])) :?>
+				<p class="text-red-500 text-xs mt-2"><?= $errors['name']?></p>
+			<?php endif; ?>
 		</div>
 		<div>
-			<label for="quantity">Quantity:</label>
-			<input type="text" id="quantity" name="quantity" value="<?php echo isset($_POST['quantity']) ?? '' ; ?>"required>
+			<label for="quantity" class="block text-sm font-medium text-gray-700">Quantity:</label>
+			<textarea id="quantity" name="quantity" placeholder="Voeg gewenste aantal toe"></textarea>
 		</div>
 		<div>
-			<label for="price">Unit price:</label>
-			<input type="text" id="price" name="price" value="<?php echo isset($_POST['price']) ?? '' ; ?>"required>
+			<label for="price" class="block text-sm font-medium text-gray-700">Unit price:</label>
+            <textarea id="price" name="price" placeholder="Voeg prijs toe"></textarea>
 		</div>
-		<button type="submit">Add</button>
+		<button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-gray-400 py-2 px-4">Add</button>
 	</form>
+
+	</div>
 </body>
 </div>
 </main>

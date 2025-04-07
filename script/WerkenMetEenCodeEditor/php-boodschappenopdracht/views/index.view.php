@@ -19,30 +19,25 @@
     <?php foreach ($groceries as $purchase) : ?>
     <tr>
       <td>
-        <?= $purchase['name'] ?>
+        <?= htmlspecialchars($purchase['name']); ?>
       </td>
       <td>
-        €<?= $purchase['price']; ?>
+        €<?= htmlspecialchars($purchase['price']); ?>
       </td>
       <td>
-		<?= $purchase['quantity']; ?>
-      </td>
-    </tr>
-    <tr>
-      <td>
-          <?= $purchase['subTotal']; ?>
+		    <?= htmlspecialchars($purchase['quantity']); ?>
       </td>
     </tr>
     <?php endforeach; ?>
     <tr>
-      <th colspan="3">Totaal</th>
+      <!-- <th colspan="3">Totaal</th>
         <td>
-          <!-- get the total value of all products combined -->
-          <a href="?total=<?= number_format($total, 2) ?>">
-            €<?= number_format($total, 2) ?>
+           get the total value of all products combined 
+          <a href="?total=<//?= number_format($total, 2) ?>">
+            €<//?= number_format($total, 2) ?>
           </a>
         </td>
-    </tr>
+    </tr>  -->
   </table>
 </div>
 </main>

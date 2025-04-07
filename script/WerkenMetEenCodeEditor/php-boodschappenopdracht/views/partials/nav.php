@@ -11,7 +11,6 @@
               <a href="/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md hover:bg-gray-700 px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
               <a href="/overview" class="<?= urlIs('/overview') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white">Overzicht</a>
               <a href="/create" class="<?= urlIs('/create') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white">Toevoegen</a>
-              <a href="/notes" class="<?= urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white">Notes</a>
             </div>
           </div>
         </div>
