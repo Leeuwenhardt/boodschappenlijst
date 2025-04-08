@@ -8,8 +8,7 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md hover:bg-gray-700 px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-              <a href="/overview" class="<?= urlIs('/overview') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white">Overzicht</a>
+              <a href="/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md hover:bg-gray-700 px-3 py-2 text-sm font-medium" aria-current="page">Overzicht</a>
               <a href="/create" class="<?= urlIs('/create') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white">Toevoegen</a>
             </div>
           </div>

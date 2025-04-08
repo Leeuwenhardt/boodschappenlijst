@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // integer validate
-    if (! $validator->integer($_POST['quantity'] ?? 0, 1)) {
-        $errors['quantity'] = "Aantal moet minstens 1 zijn";
+    if (! $validator->integer($_POST['quantity'], 0, 99)) {
+        $errors['quantity'] = "Aantal moet minstens 1 en maximaal 99 zijn";
     }
 
     // price validate
@@ -30,6 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'quantity' => $_POST['quantity'],
         'price' => $_POST['price']
     ]);
+
+    header("Location: /");
+    exit();
     }
 }
 

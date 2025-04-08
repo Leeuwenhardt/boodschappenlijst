@@ -30,14 +30,6 @@
     </tr>
     <?php endforeach; ?>
     <tr>
-      <!-- <th colspan="3">Totaal</th>
-        <td>
-           get the total value of all products combined 
-          <a href="?total=<//?= number_format($total, 2) ?>">
-            €<//?= number_format($total, 2) ?>
-          </a>
-        </td>
-    </tr>  -->
   </table>
 </div>
 </main>

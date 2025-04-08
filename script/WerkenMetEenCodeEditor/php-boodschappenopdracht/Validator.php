@@ -8,7 +8,7 @@ Class Validator {
 
     public function integer($value, $min = 1, $max = PHP_INT_MAX) {
         $value = (int)$value;
-        return $value >= $min && $value <= $max;
+        return number_format($value) >= $min && number_format($value) <= $max;
     }
 
     public function decimal($value, $min = 0, $max = PHP_FLOAT_MAX) {
