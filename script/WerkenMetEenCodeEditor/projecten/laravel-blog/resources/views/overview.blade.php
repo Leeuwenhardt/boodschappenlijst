@@ -1,4 +1,17 @@
 <x-layout>
-    <x-slot:heading>Overview</x-slot:heading>
-    <h1>Welcome</h1>
+    <x-slot:heading>Artikelen</x-slot:heading>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Content</th>
+            <th>Publicatiedatum</th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+    </tbody>
+</table>
+
 </x-layout>
