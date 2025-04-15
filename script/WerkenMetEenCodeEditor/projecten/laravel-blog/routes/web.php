@@ -16,7 +16,7 @@ Route::get('/overview', function(){
     ]);
 });
 
-// create article page
+// Enter made articles
 Route::get('/overview/{id}', function($id) {
     $article = Article::find($id);
     return view('article', ['article' => $article]);
