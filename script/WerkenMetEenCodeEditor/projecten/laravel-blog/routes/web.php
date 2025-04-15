@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
+
 
 // index page
 Route::get('/', function() {
@@ -8,11 +10,21 @@ Route::get('/', function() {
 });
 
 // overview page
-Route::get('/overview', function() {
-    return view('overview');
+Route::get('/overview', function(){
+    return view('overview', [
+        'articles' => Article::all()
+    ]);
 });
+
+// create article page
+Route::get('/overview/{id}', function($id) {
+    $article = Article::find($id);
+    return view('article', ['article' => $article]);
+});
+
 
 // create article page
 Route::get('/create', function() {
     return view('create');
 });
+
