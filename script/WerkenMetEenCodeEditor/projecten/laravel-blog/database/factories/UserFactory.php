@@ -46,5 +46,5 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'admin' => true,
         ]);
-    } // use to make premium account
+    }
 }

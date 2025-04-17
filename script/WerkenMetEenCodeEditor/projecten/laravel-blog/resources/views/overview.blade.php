@@ -13,7 +13,7 @@
             @foreach ($articles as $article)
             <tr> 
                 <td><a href="/overview/{{ $article['id'] }}" class="text-blue-500 hover:underline">
-                    <strong>{{ $article['name'] }}</strong></td></a> 
+                    <strong>{{ $article['title'] }}</strong></td></a> 
                     <td>{{ $article['created_at'] }}</td>
             </tr>
             @endforeach

@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Artikel</x-slot:heading>
 
-<h2 class="font-bold text-lg">{{ $article['name'] }}</h2>
-<p>{{ $article['description'] }}</p>
+<h2 class="font-bold text-lg">{{ $article['title'] }}</h2>
+<p>{{ $article['body'] }}</p>
 
 </x-layout>

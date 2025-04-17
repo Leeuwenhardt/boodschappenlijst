@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 Class Article extends Model {
     use HasFactory;
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['title', 'body'];
 
     public function category() {
         return $this->hasMany(Category::class);
+    }
+
+    public function comments() {
+    return $this->HasMany(Comment::class);
     }
 };
