@@ -12,7 +12,7 @@ Class Article extends Model {
         return $this->belongsToMany(Category::class);
     }
 
-    public function comments() {
+    public function comment() {
     return $this->HasMany(Comment::class);
     }
 };

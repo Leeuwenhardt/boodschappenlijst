@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use app\Http\Requests\StoreArticleRequest;
+use app\Http\Requests\UpdateArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -26,12 +28,13 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        $article = new Article();
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->save();
+        // validate incoming request
+        $validated = $request->validated();
+
+        // update using requests
+        Article::create($validated);
 
         return redirect()->route('articles.index');
     }
@@ -55,11 +58,13 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(UpdateArticleRequest $request, Article $article)
     {
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->save();
+        $validated = $request->validated();
+
+        // update using requests
+        $article->update($validated);
+
         return redirect()->route('articles.index');
     }
 
