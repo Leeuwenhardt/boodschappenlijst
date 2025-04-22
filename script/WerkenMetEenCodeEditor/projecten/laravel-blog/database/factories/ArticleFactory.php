@@ -20,6 +20,9 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->word,
             'body' => $this->faker->sentence,
+            // 'category_id' => Category::inRandomOrder()->first()->id,
         ];
     }
 }
+
+// to sacffold data and prepare tests

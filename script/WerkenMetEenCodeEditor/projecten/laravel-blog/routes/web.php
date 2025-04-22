@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
+use App\Http\Controllers\ArticleController;
 
 
 // index page
@@ -9,22 +10,26 @@ Route::get('/', function() {
     return view('home');
 });
 
-// overview page
-Route::get('/overview', function(){
-    return view('overview', [
-        'articles' => Article::all()
-    ]);
-});
-
-// Enter made articles
-Route::get('/overview/{id}', function($id) {
-    $article = Article::find($id);
-    return view('article', ['article' => $article]);
-});
-
+// Overview articles
+Route::get('/overview', [ArticleController::class, 'index'])->name('articles.index');
 
 // create article page
 Route::get('/create', function() {
-    return view('create');
+    return view('articles.create');
 });
+
+// Create article
+Route::post('/create', [ArticleController::class, 'store'])->name('articles.store');
+
+// show article
+Route::get('/overview/{article}', [ArticleController::class, 'show'])->name('articles.article');
+
+// edit article
+Route::get('/overview/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+
+// put update article
+Route::put('/overview/{article}', [ArticleController::class, 'update'])->name('articles.update');
+
+// delete article
+Route::delete('/overview/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
