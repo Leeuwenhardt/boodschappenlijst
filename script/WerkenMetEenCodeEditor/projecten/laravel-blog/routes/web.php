@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Article;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SessionController;
 
 
 // index page
@@ -32,4 +32,9 @@ Route::put('/overview/{article}', [ArticleController::class, 'update'])->name('a
 
 // delete article
 Route::delete('/overview/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+
+// auth login and login functionality
+Route::get('/login', [SessionController::class, 'login']);
+Route::post('/login', [SessionController::class, 'store']);
+Route::post('/logout', [SessionController::class, 'destroy']);
 
