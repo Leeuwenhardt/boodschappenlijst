@@ -32,7 +32,6 @@ class SessionController extends Controller
 
         // redirect
         return redirect('/overview');
-        // dd(request()->all());
     }
 
     public function destroy() {

@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Models\Article;
+Use App\Models\Category;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 
@@ -22,7 +22,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $categories = Category::all();
+        return view('articles.create', compact('categories'));
     }
 
     /**
@@ -52,7 +53,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('articles.edit', compact('article', 'categories'));
     }
 
     /**
