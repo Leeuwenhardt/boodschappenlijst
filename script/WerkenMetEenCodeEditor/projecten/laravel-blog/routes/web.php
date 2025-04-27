@@ -14,9 +14,7 @@ Route::get('/', function() {
 Route::get('/overview', [ArticleController::class, 'index'])->name('articles.index');
 
 // create article page
-Route::get('/create', function() {
-    return view('articles.create');
-});
+Route::get('/create', [ArticleController::class, 'create'])->name('articles.create');
 
 // Create article
 Route::post('/create', [ArticleController::class, 'store'])->name('articles.store');

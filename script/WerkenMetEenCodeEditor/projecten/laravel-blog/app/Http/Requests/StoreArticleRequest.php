@@ -24,6 +24,7 @@ class StoreArticleRequest extends FormRequest
         return [
             'title' => 'required|max:250',
             'body' => 'nullable',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }

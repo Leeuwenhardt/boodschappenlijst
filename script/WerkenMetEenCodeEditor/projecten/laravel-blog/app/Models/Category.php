@@ -8,6 +8,6 @@ class Category extends Model {
     use HasFactory;
     
     public function article() {
-        return $this->belongsToMany(Article::class);
+        return $this->hasMany(Article::class);
     }
 }
