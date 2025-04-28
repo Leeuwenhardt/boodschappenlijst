@@ -25,6 +25,7 @@ class UpdateArticleRequest extends FormRequest
             'title' => 'required|max:250',
             'body' => 'nullable',
             'category_id' => 'required|exists:categories,id',
+            'user_id' => 'nullable',
         ];
     }
 }

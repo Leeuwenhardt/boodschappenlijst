@@ -11,7 +11,7 @@
         <br>
         <br>
         <label for="category">Categorie:</label>
-        <select name="category_id" id="category" required>
+        <select name="category_id[]" id="category" multiple required>
             @foreach($categories as $category)
             <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach

@@ -10,7 +10,7 @@
         <textarea id="body" name="body">{{ $article->body }}</textarea>
         <br>
         <label for="category">Categorie:</label>
-        <select name="category_id" id="category" required>
+        <select name="category_id[]" id="category" multiple required>
             @foreach($categories as $category)
                 <option value="{{ $category->id }}" {{ $article->category_id == $category->id ? 'selected' : '' }}>
                     {{ $category->name }}
