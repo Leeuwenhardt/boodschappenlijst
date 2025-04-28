@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\SessionController;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 // index page
 Route::get('/', function() {
@@ -35,4 +36,13 @@ Route::delete('/overview/{article}', [ArticleController::class, 'destroy'])->nam
 Route::get('/login', [SessionController::class, 'login']);
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
+
+// create category page
+Route::get('/category', [CategoryController::class, 'create'])->name('categories.create');
+
+// create category
+Route::post('/category', [CategoryController::class, 'store'])->name('categories.store');
+
+// post a comment
+Route::get('/overview/{article}', [CommentController::class, 'store'])->name('articles.article');
 
