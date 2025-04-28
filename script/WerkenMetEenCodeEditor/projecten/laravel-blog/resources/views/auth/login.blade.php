@@ -5,6 +5,9 @@
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>
+        @error('username')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
         <br>
         <label for="password">Password:</label>
         <textarea type="text" id="password" name="password" required></textarea>

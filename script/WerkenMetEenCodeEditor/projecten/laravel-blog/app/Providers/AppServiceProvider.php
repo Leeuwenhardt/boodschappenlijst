@@ -23,8 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::preventLazyLoading();
-
         Gate::define('show-article', function (User $user, Article $article) {
             return $article->user->is($user);
         });
