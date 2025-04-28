@@ -35,6 +35,8 @@ Route::delete('/overview/{article}', [ArticleController::class, 'destroy'])->nam
 // auth login and login functionality
 Route::get('/login', [SessionController::class, 'login']);
 Route::post('/login', [SessionController::class, 'store']);
+
+// logout
 Route::post('/logout', [SessionController::class, 'destroy']);
 
 // create category page

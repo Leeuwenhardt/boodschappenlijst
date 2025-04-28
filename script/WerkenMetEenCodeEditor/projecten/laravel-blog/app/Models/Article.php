@@ -12,7 +12,11 @@ Class Article extends Model {
         return $this->belongsTo(Category::class);
     }
 
-    public function comment() {
-    return $this->HasMany(Comment::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
+
+    // public function comment() {
+    // return $this->HasMany(Comment::class);
+    // }
 };

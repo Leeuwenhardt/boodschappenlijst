@@ -5,6 +5,7 @@ use App\Models\Article;
 Use App\Models\Category;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -45,6 +46,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        Gate::authorize('show-article', $article);
+        
         return view('articles.article', ['article' => $article]);
     }
 
@@ -53,6 +56,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        Gate::authorize('edit-article', $article);
+
         $categories = Category::all();
         return view('articles.edit', compact('article', 'categories'));
     }
@@ -75,6 +80,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        Gate::authorize('destroy-article', $article);
+
         if ($article) {
             $article->delete();
         }

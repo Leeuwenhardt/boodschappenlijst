@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Category;
+Use app\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
@@ -21,6 +22,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->word,
             'body' => $this->faker->sentence,
             'category_id' => Category::inRandomOrder()->first()->id,
+            'user_id' => User::factory(),
         ];
     }
 }
