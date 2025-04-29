@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot:heading>Edit article</x-slot:heading>
-    <form action="{{ route('articles.update', $article->id) }}" method="POST">
+    <form action="{{ route('articles.update', $article) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="name">Artikel naam:</label>
+        <label for="title">Artikel naam:</label>
         <input type="text" id="title" name="title" value="{{ $article->title }}" required>
         <br>
         <label for="body">Beschrijving:</label>
@@ -12,7 +12,7 @@
         <label for="category">Categorie:</label>
         <select name="category_id[]" id="category" multiple required>
             @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ $article->category_id == $category->id ? 'selected' : '' }}>
+                <option value="{{ $category->id }}">
                     {{ $category->name }}
                 </option>
             @endforeach

@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::with('category')->get();
         return view('overview', compact('articles'));
     }
 
@@ -30,13 +30,19 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreArticleRequest $request)
+    public function store(StoreArticleRequest $request, Article $article)
     {
         // validate incoming request
         $validated = $request->validated();
 
         // update using requests
-        Article::create($validated);
+        $article = Article::create($validated);
+
+        // add category
+        if (!empty($validated['category_id'])) {
+            $article->category()->attach($validated['category_id'] ?? []);
+        }
+
 
         return redirect()->route('articles.index');
     }
@@ -46,7 +52,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        Gate::authorize('show-article', $article);
+        // Gate::authorize('show-article', $article);
         
         return view('articles.article', ['article' => $article]);
     }
@@ -56,8 +62,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        Gate::authorize('edit-article', $article);
-
+        // Gate::authorize('edit-article', $article);
+        $article->load('category');
         $categories = Category::all();
         return view('articles.edit', compact('article', 'categories'));
     }
@@ -71,6 +77,9 @@ class ArticleController extends Controller
 
         // update using requests
         $article->update($validated);
+
+        // categories update
+        $article->category()->sync($validated['category_id'] ?? []);
 
         return redirect()->route('articles.index');
     }

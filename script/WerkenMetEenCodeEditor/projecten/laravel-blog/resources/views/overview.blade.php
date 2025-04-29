@@ -16,7 +16,13 @@
             <td><a href="/overview/{{ $article['id'] }}" class="text-blue-500 hover:underline block px-4 py-6 border border-gray-200 rounded-lg">
                 <strong>{{ $article['title'] }}</strong></a></td>
                 <td class="px-4 py-4 text-gray-700">{{ $article['created_at'] }}</td>
-                <td class="px-4 py-4 text-gray-700">{{  $article->category->name }}</td>
+                <td class="px-4 py-4 text-gray-700">
+                @if($article->category->isNotEmpty())
+                @foreach($article->category as $category)
+                    {{ $category->name }}@if(!$loop->last), @endif
+                @endforeach
+                @endif
+                </td>
                 <td class="px-4 py-4 text-gray-700">
                     <a href=" {{ route('articles.edit', $article->id) }}" class="text-blue-500 hover:underline">Bewerken</a>
                 </td>

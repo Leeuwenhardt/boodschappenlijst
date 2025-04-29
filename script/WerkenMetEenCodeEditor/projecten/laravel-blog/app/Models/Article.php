@@ -9,7 +9,7 @@ Class Article extends Model {
     protected $fillable = ['title', 'body', 'user_id'];
 
     public function category() {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'article_category', 'article_id', 'category_id');
     }
 
     public function user() {

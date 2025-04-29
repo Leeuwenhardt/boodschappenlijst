@@ -2,7 +2,7 @@
     <x-slot:heading>Create a new article</x-slot:heading>
     <form action="{{ route('articles.store') }}" method="POST">
         @csrf
-        <label for="name">Artikel naam:</label>
+        <label for="title">Artikel naam:</label>
         <input type="text" id="title" name="title" required>
         <br>
         <br>
@@ -13,7 +13,9 @@
         <label for="category">Categorie:</label>
         <select name="category_id[]" id="category" multiple required>
             @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}">
+                    {{ $category->name }}
+                </option>
             @endforeach
         </select>
         <br>

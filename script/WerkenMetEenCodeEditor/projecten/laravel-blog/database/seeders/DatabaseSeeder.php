@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\Models\Article;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +26,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'username' => 'Test User',
         ]);
+
+        User::factory()->count(5)->create();
+
+        Category::factory()->count(5)->create();
+
+        Article::factory()->count(5)->create();
+
     }
 }
 
