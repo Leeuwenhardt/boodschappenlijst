@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 

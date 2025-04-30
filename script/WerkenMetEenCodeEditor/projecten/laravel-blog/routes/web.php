@@ -49,8 +49,8 @@ Route::get('/category', [CategoryController::class, 'create'])->name('categories
 Route::post('/category', [CategoryController::class, 'store'])->name('categories.store');
 
 // post a comment
-// Route::get('/overview/{article}', [CommentController::class, 'store'])->name('articles.article');
+// Route::get('/overview/{}', [CommentController::class, 'store'])->name('articles.article');
 
 // put comment
-// Route::put('/overview/{article}', [CommentController::class, 'update'])->name('articles.article');
+// Route::put('/overview/{}', [CommentController::class, 'update'])->name('articles.article');
 

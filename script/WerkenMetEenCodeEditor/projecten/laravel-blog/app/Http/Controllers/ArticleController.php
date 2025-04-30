@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Article;
 Use App\Models\Category;
-use App\Models\User;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -35,14 +35,15 @@ class ArticleController extends Controller
     {
         // validate incoming request
         $validated = $request->validated();
+        $validated['user_id'] = Auth::id();
 
         // update using requests
         $article = Article::create($validated);
 
         // add category
-        if (!empty($validated['category_id'])) {
-            $article->category()->attach($validated['category_id'] ?? []);
-        }
+        if ($validated['category_id']) {
+            $article->category()->attach($validated['category_id']);
+          }
 
 
         return redirect()->route('articles.index');
@@ -98,9 +99,15 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-    public function myArticle() {
-        $article = auth()->user()->articles()->latest()->get();
+    public function myArticles() {
+        // auth the user
+        $user = Auth::user();
 
-        return view('articles.userArticle', ['article' => $article]);
+        // get user article
+        if ($user) {
+            $articles = Article::where('user_id', $user->id)->latest()->get();
+        }
+
+        return view('articles.userArticle', ['articles' => $articles]);
     }
 }
