@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:heading>Artikelen</x-slot:heading>
+    <x-slot:heading>Mijn artikelen</x-slot:heading>
 
 <table class="w-full">
     <thead>

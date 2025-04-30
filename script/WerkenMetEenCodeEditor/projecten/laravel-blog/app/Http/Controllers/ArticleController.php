@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Article;
 Use App\Models\Category;
+use App\Models\User;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Support\Facades\Gate;
@@ -95,5 +96,11 @@ class ArticleController extends Controller
             $article->delete();
         }
         return redirect()->route('articles.index');
+    }
+
+    public function myArticle() {
+        $article = auth()->user()->articles()->latest()->get();
+
+        return view('articles.userArticle', ['article' => $article]);
     }
 }

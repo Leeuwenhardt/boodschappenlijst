@@ -39,6 +39,9 @@ Route::post('/login', [SessionController::class, 'store']);
 // logout
 Route::post('/logout', [SessionController::class, 'destroy']);
 
+// personally made articles page
+Route::get('/myArticles', [ArticleController::class, 'myArticles'])->middleware('auth');
+
 // create category page
 Route::get('/category', [CategoryController::class, 'create'])->name('categories.create');
 
@@ -46,7 +49,7 @@ Route::get('/category', [CategoryController::class, 'create'])->name('categories
 Route::post('/category', [CategoryController::class, 'store'])->name('categories.store');
 
 // post a comment
-Route::get('/overview/{article}', [CommentController::class, 'store'])->name('articles.article');
+// Route::get('/overview/{article}', [CommentController::class, 'store'])->name('articles.article');
 
 // put comment
 // Route::put('/overview/{article}', [CommentController::class, 'update'])->name('articles.article');
