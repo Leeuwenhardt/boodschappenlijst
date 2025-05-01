@@ -18,10 +18,11 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+               <!-- TODO :: route names gebruiken -->
               <x-nav href="/" :active="request()->is('/')">Home</x-nav>
               <x-nav href="/overview" :active="request()->is('overview')">Overzicht</x-nav>
-              <x-nav href="create" :active="request()->is('create')">Create a new article</x-nav>
-              <x-nav href="category" :active="request()->is('category')">Create a new Category</x-nav>
+              <x-nav href="/create" :active="request()->is('create')">Create a new article</x-nav>
+              <x-nav href="/category" :active="request()->is('category')">Create a new Category</x-nav>
             </div>
           </div>
         </div>
@@ -32,7 +33,7 @@
             @endguest
 
             @auth
-              <x-nav href="myArticles" :active="request()->is('myArticles')">Mijn overzicht</x-nav>
+              <x-nav href="/myArticles" :active="request()->is('myArticles')">Mijn overzicht</x-nav>
             @endauth
 
             @auth

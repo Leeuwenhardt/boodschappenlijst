@@ -8,6 +8,7 @@ Class Article extends Model {
     use HasFactory;
     protected $fillable = ['title', 'body', 'user_id'];
 
+    // TODO :: verbeteren
     public function category() {
         return $this->belongsToMany(Category::class, 'article_category', 'article_id', 'category_id');
     }

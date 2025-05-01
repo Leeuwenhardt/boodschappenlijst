@@ -7,6 +7,8 @@ use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -33,14 +35,18 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request, Article $article)
     {
-        // validate incoming request
         $validated = $request->validated();
         $validated['user_id'] = Auth::id();
-
-        // update using requests
         $article = Article::create($validated);
+        
+        // if ($validated['file']) {
+        //     $path = $request->file('file')->store('uploads', 'public');
+        // }
 
-        // add category
+        // $url = Storage::url($path);
+
+        // return response()->json(['url'],201);
+
         if ($validated['category_id']) {
             $article->category()->attach($validated['category_id']);
           }
@@ -76,11 +82,7 @@ class ArticleController extends Controller
     public function update(UpdateArticleRequest $request, Article $article)
     {
         $validated = $request->validated();
-
-        // update using requests
         $article->update($validated);
-
-        // categories update
         $article->category()->sync($validated['category_id'] ?? []);
 
         return redirect()->route('articles.index');
@@ -93,6 +95,8 @@ class ArticleController extends Controller
     {
         Gate::authorize('destroy-article', $article);
 
+        // if(Auth::id() !== $article->user_id) return;
+
         if ($article) {
             $article->delete();
         }
@@ -100,10 +104,8 @@ class ArticleController extends Controller
     }
 
     public function myArticles() {
-        // auth the user
         $user = Auth::user();
 
-        // get user article
         if ($user) {
             $articles = Article::where('user_id', $user->id)->latest()->get();
         }

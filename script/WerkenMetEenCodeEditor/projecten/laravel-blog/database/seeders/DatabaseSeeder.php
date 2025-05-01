@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
         ]);
 
+        // TODO :: make seeders work properly, pivot table seeden
+
         User::factory()->create([
             'username' => 'Test User',
         ]);

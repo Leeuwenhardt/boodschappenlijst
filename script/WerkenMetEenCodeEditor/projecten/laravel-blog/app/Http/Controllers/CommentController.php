@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\Comment;
-
-use Illuminate\Http\Request;
+Use App\Http\Requests\StoreCommentRequest;
 
 class CommentController extends Controller
 {
-    public function store(Request $request) {
-        $comment = new Comment();
-        $comment-> name = $request->input('body');
-        $comment->save();
+    public function store(StoreCommentRequest $request) {
+        $validated = $request->validated();
+        Comment::create($validated);
 
         return view('articles.article');
     }

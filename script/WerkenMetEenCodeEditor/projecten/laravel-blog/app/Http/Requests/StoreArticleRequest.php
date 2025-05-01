@@ -25,7 +25,8 @@ class StoreArticleRequest extends FormRequest
             'title' => 'required|max:250',
             'body' => 'nullable',
             'category_id' => 'nullable|array',
-            'user_id' => 'nullable'
+            'user_id' => 'nullable',
+            // 'file' => 'nullable',
         ];
     }
 }

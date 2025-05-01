@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 Use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -25,11 +26,10 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $category = new Category();
-        $category-> name = $request->input('name');
-        $category->save();
+        $validated = $request->validated();
+        Category::create($validated);
 
         return redirect()->action([ArticleController::class, 'index']);
     }
